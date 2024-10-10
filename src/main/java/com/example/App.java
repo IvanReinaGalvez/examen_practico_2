@@ -69,5 +69,53 @@ public class App
                 && empleadoItem.getSalario() > promedioSalario)
                 System.out.println(empleadoItem.toString());
         }
+
+        List<? super Persona> listPersonasVariadas = new ArrayList<>();
+        listPersonasVariadas.addAll(empleadoList);
+
+        Estudiante est1 = Estudiante.builder()
+            .nombre("Roberto")
+            .primerApellido("Ruiz")
+            .segundoApellido("Garcia")
+            .genero(Genero.OTRO)
+            .facultad(Facultad.FISICA)
+            .totalAsignaturasMatriculadas(7)
+            .build();
+
+        listPersonasVariadas.add(est1);
+
+        Estudiante est2 = Estudiante.builder()
+            .nombre("Pedro")
+            .primerApellido("Sanchez")
+            .segundoApellido("Pesoe")
+            .genero(Genero.HOMBRE)
+            .facultad(Facultad.INFORMATICA)
+            .totalAsignaturasMatriculadas(14)
+            .build();
+
+        listPersonasVariadas.add(est2);
+
+        Estudiante est3 = Estudiante.builder()
+            .nombre("Sandra")
+            .primerApellido("Ruiz")
+            .segundoApellido("Garcia")
+            .genero(Genero.MUJER)
+            .facultad(Facultad.MEDICINA)
+            .totalAsignaturasMatriculadas(4)
+            .build();
+
+        listPersonasVariadas.add(est3);
+
+        Estudiante est4 = Estudiante.builder()
+            .nombre("Samuel")
+            .primerApellido("Lorca")
+            .segundoApellido("Galapagos")
+            .genero(Genero.OTRO)
+            .facultad(Facultad.ADE)
+            .totalAsignaturasMatriculadas(6)
+            .build();
+
+        listPersonasVariadas.add(est4);
+        
     }
 }
