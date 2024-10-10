@@ -152,7 +152,7 @@ public class App
         listPersonasVariadas.add(est7);
        
         OptionalDouble odPromedioAsigMatriculadas = listPersonasVariadas.stream()
-        .filter((Object t) -> t instanceof Estudiante est)
+        .filter((Object t) -> t instanceof Estudiante)
         .mapToDouble((Object value) -> ((Estudiante) value).getTotalAsignaturasMatriculadas()).average();
         
         Double promedioAsigMatriculadas = 0.0;
