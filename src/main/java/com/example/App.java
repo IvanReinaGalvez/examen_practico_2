@@ -172,7 +172,7 @@ public class App
                     estudiantesMujerLista.add(estudiante);
             }
         }
-        System.out.println("Lista de estudiantes mujeres con una media de asignaruta mayor o igual al promedio; \n" 
+        System.out.println("Lista de estudiantes mujeres con una media de asignaruta mayor o igual al promedio: \n" 
             + estudiantesMujerLista);
     }
 }
