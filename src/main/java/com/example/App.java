@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.OptionalDouble;
 
@@ -116,6 +117,62 @@ public class App
             .build();
 
         listPersonasVariadas.add(est4);
+
+        Estudiante est5 = Estudiante.builder()
+            .nombre("Marta")
+            .primerApellido("Carai")
+            .segundoApellido("Gorka")
+            .genero(Genero.MUJER)
+            .facultad(Facultad.MEDICINA)
+            .totalAsignaturasMatriculadas(2)
+            .build();
+
+        listPersonasVariadas.add(est5);
+
+        Estudiante est6 = Estudiante.builder()
+            .nombre("Maria Pericia")
+            .primerApellido("Tamal")
+            .segundoApellido("Polucia")
+            .genero(Genero.MUJER)
+            .facultad(Facultad.ADE)
+            .totalAsignaturasMatriculadas(4)
+            .build();
+
+        listPersonasVariadas.add(est6);
+     
+        Estudiante est7 = Estudiante.builder()
+            .nombre("Maria")
+            .primerApellido("Tamalia")
+            .segundoApellido("Lutrz")
+            .genero(Genero.MUJER)
+            .facultad(Facultad.ADE)
+            .totalAsignaturasMatriculadas(9)
+            .build();
+
+        listPersonasVariadas.add(est7);
+       
+        OptionalDouble odPromedioAsigMatriculadas = listPersonasVariadas.stream()
+        .filter((Object t) -> t instanceof Estudiante est)
+        .mapToDouble((Object value) -> ((Estudiante) value).getTotalAsignaturasMatriculadas()).average();
         
+        Double promedioAsigMatriculadas = 0.0;
+        if(odPromedioAsigMatriculadas.isPresent()) {
+            promedioAsigMatriculadas = odPromedioAsigMatriculadas.getAsDouble();
+        }
+
+        System.out.println("El promedio de asignaturas matriculadas es de: " + promedioAsigMatriculadas);
+         
+        List<Estudiante> estudiantesMujerLista = new ArrayList<>();
+        Iterator<? super Persona> iEstudiante = listPersonasVariadas.iterator();
+        while (iEstudiante.hasNext()) {
+            Object obj = iEstudiante.next();
+            if (obj instanceof Estudiante estudiante
+                && estudiante.getGenero().equals(Genero.MUJER)
+                && estudiante.getTotalAsignaturasMatriculadas() >= promedioAsigMatriculadas) {
+                    estudiantesMujerLista.add(estudiante);
+            }
+        }
+        System.out.println("Lista de estudiantes mujeres con una media de asignaruta mayor o igual al promedio; \n" 
+            + estudiantesMujerLista);
     }
 }
